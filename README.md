@@ -1,6 +1,6 @@
 ## BEM (Block - Element - Modifier)
-    - Block__Element--Modifier
-    - Mình có sử dụng cách đặt này cho CSS nên nó có thể hơi dài, mong mấy bạn thông cảm, mình sẽ cố đặt sao cho dễ hiểu nhất có thể
+- Block__Element--Modifier
+- Mình có sử dụng cách đặt này cho CSS nên nó có thể hơi dài, mong mấy bạn thông cảm, mình sẽ cố đặt sao cho dễ hiểu nhất có thể
 
 ## Do mình đặt hơi loạn nên mình sẽ list ra cho dễ hình dung
 - header
