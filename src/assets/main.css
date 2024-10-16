@@ -24,12 +24,13 @@ html {
 }
 
 /* ========== Thanh trên ========== */
-.header__navbar-above {
+.navbar--above {
     height: 70px;
     background-color: #131921;
+    display: flex;
 }
 
-.header__navbar-above--logo {
+.navbar--above__logo {
     height: 60px;
     width: 110px;
 }
@@ -41,49 +42,61 @@ html {
     padding: 1px 8px 0 6px;
 }
 
-.header__navbar-above--address {
+.navbar--above__address,
+.navbar__icon, 
+.navbar--above__address--icon {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.navbar--above__address {
+    width: 150px;
+}
+
+.navbar__icon {
+    display: inline-flex;
+    align-items: center;
+}   
+
+.navbar--above__search {
 
 }
 
-.header__navbar-above--search {
+.navbar--above__language {
 
 }
 
-.header__navbar-above--language {
+.navbar--above__signin {
 
 }
 
-.header__navbar-above--signin {
+.navbar--above__return {
 
 }
 
-.header__navbar-above--return {
-
-}
-
-.header__navbar-above--cart {
+.navbar--above__cart {
 
 }
 
 /* ========== Thanh trên ========== */
-.header__navbar-bottom {
+.navbar--bottom {
     height: 70px;
     background-color: #232f3e;
 }
 
-.header__navbar-bottom--add {
+.navbar--bottom__add {
 
 }
 
-.header__navbar-bottom--sth {
+.navbar--bottom__sth {
 
 }
 
-.header__navbar-bottom--deal {
+.navbar--bottom__deal {
 
 }
 
-.header__navbar-bottom--cs {
+.navbar--bottom__cs {
 
 }
 
