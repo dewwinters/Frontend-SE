@@ -36,6 +36,7 @@
 }
 
 .navbar__location {
+    width: 105px;
     display: flex;
     /* gap: 5px; */
     padding: 8px 8px 8px 6px;
@@ -181,6 +182,7 @@
 }
 
 .account {
+    width: 125px;
     display: flex;
     height: 30px;
     padding: 5px;
@@ -222,6 +224,7 @@
 }
 
 .return {
+    width: 70px;
     position: relative;
     color: white;
     text-decoration: none;
@@ -288,4 +291,58 @@
 
 .cart__icon {
     padding-top: 8px;
+}
+
+/* navbar dưới */
+.navbar__down {
+    background-color: #085749;
+    padding: 0 0 0 11px;
+    display: flex;
+    height: 39px;
+    justify-content: space-between;
+    color: white;
+}
+
+.navbar__down__left {
+    display: flex;
+}
+
+.option {
+    display: flex;
+    padding: 8px 9px;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid;
+        border-radius: 3px;
+    }
+}
+
+.option__text {
+    font-size: 14px;
+    padding-left: 5px;
+    font-weight: 400;
+}
+
+.type {
+    display: flex;
+    padding: 8px 9px;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid;
+        border-radius: 3px;
+    }
+}
+
+.type__text {
+    font-size: 14px;
+    padding-left: 5px;
+    font-weight: 400;
 }

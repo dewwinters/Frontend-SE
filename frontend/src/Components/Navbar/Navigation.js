@@ -6,6 +6,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
 class NavBar extends Component {
     constructor(props) {
@@ -116,7 +117,44 @@ class NavBar extends Component {
 
                 {/* NavBar dưới */}
                 <div className="navbar__down">
+                    <div className="navbar__down__left">
+                        <div className="option">
+                            <MenuOutlinedIcon sx={{fontSize: "24px"}}/>
+                            <div className="option__text">
+                                All
+                            </div>
+                        </div>
 
+                        <div className="type">
+                            <div className="type__text">
+                                Today's Deals
+                            </div>
+                        </div>
+
+                        <div className="type">
+                            <div className="type__text">
+                                Customer Service
+                            </div>
+                        </div>
+
+                        <div className="type">
+                            <div className="type__text">
+                                Registry
+                            </div>
+                        </div>
+
+                        <div className="type">
+                            <div className="type__text">
+                                Gift Cards
+                            </div>
+                        </div>
+
+                        <div className="type">
+                            <div className="type__text">
+                                Sell
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );  
