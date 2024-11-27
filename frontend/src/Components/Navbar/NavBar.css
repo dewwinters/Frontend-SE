@@ -1,9 +1,75 @@
-.navbar__component {
-    width: 100vw;
-    height: 60px;
+/* navbar trên */
+.navbar__up {
     background-color: #004435;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    color: white;
+    box-sizing: border-box;
+}
+
+/* navbar trên, bên trái */
+.navbar__up__left {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
 }
 
 .navbar__logo {
-    
+    width: 100px;
+    height: 30px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    padding: 8px;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid;
+        border-radius: 3px;
+    }
 }
+
+.amazon__logo {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar__location {
+    display: flex;
+    /* gap: 5px; */
+    padding: 8px;
+    height: 30px;
+    cursor: pointer;
+    &:hover {
+        border-radius: 3px;
+        border: 1px solid;
+    }
+} 
+
+.location__icon {
+    margin-top: 8px;
+}
+
+.navbar__location__place {
+    display: flex;
+    flex-direction: column;
+}
+
+.place__top {
+    height: 14px;
+    font-size: 14px;
+    color: #ccc;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.place__bottom {
+    height: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 15px;
+}
+/* navbar trên, ở giữa */
+
+/* navbar trên, bên phải */
