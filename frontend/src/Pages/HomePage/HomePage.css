@@ -36,6 +36,7 @@
     font-weight: 300;
     background-color: transparent;
     color: white;
+    cursor: pointer;
 }
 
 .btn__slider:focus {
