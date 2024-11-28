@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import "./HomePage.css";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
+import NavBar from "../../Components/Navbar/Navigation";
 
 const HomePage = () => {
   const [startSlider, setStartSlider] = useState(0);
@@ -23,6 +24,7 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
+      <NavBar />
       <div className="image__container">
         <div
           className="image__list"
@@ -87,6 +89,8 @@ const HomePage = () => {
           </button>
         </div>
       </div>
+    
+    
     </div>
   );
 };
