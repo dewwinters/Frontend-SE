@@ -10,7 +10,12 @@ const SignUp = () => {
     repassword: "",
   });
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState({
+    name: "",
+    email: "",
+    password: "",
+    repassword: "",
+  });
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -18,14 +23,48 @@ const SignUp = () => {
       ...formData,
       [id]: value,
     });
+    setError({
+      ...error,
+      [id]: "",
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.password !== formData.repassword) {
-      setError("Passwords do not match");
-    } else {
-      setError("");
+    let isValid = true;
+    let newError = {
+      name: "",
+      email: "",
+      password: "",
+      repassword: "",
+    };
+
+    if (formData.name.trim() === "") {
+      newError.name = "Please enter your name.";
+      isValid = false;
+    }
+    if (formData.email.trim() === "") {
+      newError.email = "Please enter your email.";
+      isValid = false;
+    }
+    if (formData.password.trim() === "") {
+      newError.password = "Please enter your password.";
+      isValid = false;
+    } else if (formData.password.length < 6) {
+      newError.password = "Password must be at least 6 characters long.";
+      isValid = false;
+    }
+    if (formData.repassword.trim() === "") {
+      newError.repassword = "Please re-enter your password.";
+      isValid = false;
+    } else if (formData.password !== formData.repassword) {
+      newError.repassword = "Passwords do not match.";
+      isValid = false;
+    }
+
+    setError(newError);
+
+    if (isValid) {
       console.log("Form submitted", formData);
     }
   };
@@ -45,6 +84,7 @@ const SignUp = () => {
             required
             onChange={handleInputChange}
           />
+          {error.name && <p className="error-message">{error.name}</p>}
 
           <label htmlFor="email">Mobile number or email</label>
           <input
@@ -55,6 +95,7 @@ const SignUp = () => {
             required
             onChange={handleInputChange}
           />
+          {error.email && <p className="error-message">{error.email}</p>}
 
           <label htmlFor="password">Password</label>
           <input
@@ -65,6 +106,7 @@ const SignUp = () => {
             required
             onChange={handleInputChange}
           />
+          {error.password && <p className="error-message">{error.password}</p>}
 
           <label htmlFor="repassword">Re-enter password</label>
           <input
@@ -75,8 +117,7 @@ const SignUp = () => {
             required
             onChange={handleInputChange}
           />
-
-          {error && <p className="error-message">{error}</p>}
+          {error.repassword && <p className="error-message">{error.repassword}</p>}
 
           <button type="submit" className="signup-button">
             Continue
