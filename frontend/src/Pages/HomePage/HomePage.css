@@ -4,6 +4,7 @@
 
 .image__container {
     position: relative;
+    z-index: 1;
 }
 
 .image__list {
@@ -27,6 +28,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    z-index: 2;
 }
 
 .btn__slider {
