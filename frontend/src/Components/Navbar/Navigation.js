@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "./NavBar.css";
 import amazon_logo from "../../Assets/amazon_logo.png";
 import vietnam from '../../Assets/vietnam.png';
@@ -7,6 +7,11 @@ import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import CloseIcon from '@mui/icons-material/Close';
+import {motion} from "framer-motion"
+import LanguageIcon from '@mui/icons-material/Language';
 
 const NavBar = () => {
     const [showAll, setShowAll] = useState(false);
@@ -40,6 +45,17 @@ const NavBar = () => {
         {_id:"126", title:"Video Games"},
         {_id:"127", title:"Women's Fashion"}
     ];
+
+    const [sidebar, setSiderbar]= useState(false)
+
+    const ref = useRef();
+    useEffect(() => {
+        document.body.addEventListener("click", (e) => {
+            if (e.target.contains(ref.current)) {
+                setSiderbar(false);
+            }
+        });
+    }, [ref, sidebar]);
 
     return (
         <div className="navbar__component">
@@ -150,7 +166,7 @@ const NavBar = () => {
             {/* NavBar dưới */}
             <div className="navbar__down">
                 <div className="navbar__down__left">
-                    <div className="option">
+                    <div className="option" onClick={()=>setSiderbar(true)}>
                         <MenuOutlinedIcon sx={{ fontSize: "24px" }}/>
                         <div className="option__text">
                             All
@@ -188,6 +204,259 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
+        
+            {/* navbar bên trái */}
+            {
+                sidebar && (
+                    <div className="sidebar__screen">
+                        <div className="sidebar__all">
+                            <motion.div ref={ref} initial={{x:-500, opacity:0}} animate={{x:0, opacity:1}} transition={{duration:0.5}} className="sidebar__box">
+
+                                {/* signin */}
+                                <div className="sidebar__signin">
+                                    <AccountCircleIcon/>
+                                    <h3 className="sidebar__signin__text">
+                                        Hello, User
+                                    </h3>
+                                </div>
+                                
+                                <div className="sidebar__wrap">
+                                    {/* block 1 */}
+                                    <div className="sidebar__component">
+                                        <h3 className="sidebar__heading">
+                                            Digital Content & Devices
+                                        </h3>
+                                        <ul className="sidebar__component__box">
+                                            <li className="sidebar__component__text">
+                                                Amazon Music 
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Kindle E-readers & Books
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Amazon Appstore 
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    {/* block 2 */}
+                                    <div className="sidebar__component">
+                                        <h3 className="sidebar__heading">
+                                            Shop by Department
+                                        </h3>
+                                        <ul className="sidebar__component__box">
+                                            <li className="sidebar__component__text">
+                                                Electronics
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Computers
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Smart Home
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Arts & Crafts
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Automotive
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Baby
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Beauty and Personal Care
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Women's Fashion
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Men's Fashion
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Girls' Fashion
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Boys' Fashion
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Health and Household
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Home and Kitchen
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Industrial and Scientific
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Luggage
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Movies and Televisions
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Pet Supplies
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Software
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Sports and Outdoors
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Tools and Home Improvements
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Toys and Games
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Video Games
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    {/* block 3 */}
+                                    <div className="sidebar__component">
+                                        <h3 className="sidebar__heading">
+                                            Programs and Features
+                                        </h3>
+                                        <ul className="sidebar__component__box">
+                                            <li className="sidebar__component__text">
+                                                Gift Cards
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Shop By Interest
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Amazon Live 
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                International Shopping 
+                                                <span>
+                                                    <ArrowForwardIosIcon/>
+                                                </span>
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Amazon Second Chance
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    {/* block 4 */}
+                                    <div className="sidebar__component">
+                                        <h3 className="sidebar__heading">
+                                            Help and Settings
+                                        </h3>
+                                        <ul className="sidebar__component__box">
+                                            <li className="sidebar__component__text">
+                                                Your Account
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                <span>
+                                                    <LanguageIcon/>
+                                                </span>
+                                                English
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Customer Services 
+                                            </li>
+                                            <li className="sidebar__component__text">
+                                                Sign in
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                {/* nút đóng */}
+                                <span className="sidebar__close__icon" onClick={()=>setSiderbar(false)}>
+                                    <CloseIcon/>
+                                </span>
+                            </motion.div>
+                        </div>
+                    </div>
+                )
+            }
+        
         </div>
     );
 }
