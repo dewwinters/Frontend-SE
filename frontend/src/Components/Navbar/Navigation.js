@@ -431,11 +431,17 @@ const NavBar = () => {
                                             <li className="sidebar__component__text">
                                                 Your Account
                                             </li>
-                                            <li className="sidebar__component__text">
+                                            <li className="sidebar__component__text--modified">
                                                 <span>
                                                     <LanguageIcon/>
                                                 </span>
                                                 English
+                                            </li>
+                                            <li className="sidebar__component__text--modified">
+                                                <span>
+                                                    <img src={vietnam} className="vietnam__flag" alt="vietnam_logo"/>
+                                                </span>
+                                                Viet Nam
                                             </li>
                                             <li className="sidebar__component__text">
                                                 Customer Services 

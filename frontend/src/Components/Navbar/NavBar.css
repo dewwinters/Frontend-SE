@@ -1,3 +1,7 @@
+.navbar__component {
+
+}
+
 /* navbar trên */
 .navbar__up {
     background-color: #004435;
@@ -463,6 +467,20 @@
 }
 
 .sidebar__component__text:hover {
+    background-color: #e4e4e7;
+}
+
+.sidebar__component__text--modified {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding: 8px 20px 8px 20px; 
+    cursor: pointer;
+    gap: 10px;
+    transition: background-color 0.2s ease-in-out; 
+}
+
+.sidebar__component__text--modified:hover {
     background-color: #e4e4e7;
 }
 
