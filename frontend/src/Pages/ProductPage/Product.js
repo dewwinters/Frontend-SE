@@ -2,11 +2,14 @@ import React from 'react'
 import './Product.css';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
-import ProductDetail from './Product.json'
+import ProductDetail from './Product.json';
+import NavBar from "../../Components/Navbar/Navigation"
+import ProductFooter from "./ProductFooter"
 
 const Product = () => {
   return (
     <div className='ProductPage'>
+      <NavBar />
       <div className='ProductTopBanner'>
 
         <div className='ProductTopBannerItems'>
@@ -120,6 +123,8 @@ const Product = () => {
         </div>
 
       </div>
+
+      <ProductFooter />
     </div>
 
   )
