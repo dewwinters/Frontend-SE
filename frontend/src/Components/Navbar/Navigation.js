@@ -7,6 +7,7 @@ import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
     constructor(props) {
@@ -23,9 +24,9 @@ class NavBar extends Component {
                     {/* bên trái */}
                     <div className="navbar__up__left">
                         {/* logo */}
-                        <div className="navbar__logo">
+                        <Link to={'/'}className="navbar__logo">
                             <img className='amazon__logo' src={amazon_logo} alt='amazon_logo'/>
-                        </div>
+                        </Link>
                         
                         {/* vị trí */}
                         <div className="navbar__location">
@@ -125,11 +126,11 @@ class NavBar extends Component {
                             </div>
                         </div>
 
-                        <div className="type">
+                        <Link to={'/Product'}className="type">
                             <div className="type__text">
                                 Today's Deals
                             </div>
-                        </div>
+                        </Link>
 
                         <div className="type">
                             <div className="type__text">
