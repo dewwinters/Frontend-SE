@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Footer.css";
+import "../ProductPage/ProductFooter.css";
 import amazon_logo__origin from "../../Assets/amazon_logo__origin.png";
 import LanguageIcon from '@mui/icons-material/Language';
 import vietnam from '../../Assets/vietnam.png';
