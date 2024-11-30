@@ -7,6 +7,7 @@ import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import { Link } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
@@ -45,6 +46,7 @@ const NavBar = () => {
         {_id:"126", title:"Video Games"},
         {_id:"127", title:"Women's Fashion"}
     ];
+
 
     const [sidebar, setSiderbar]= useState(false)
 
@@ -173,11 +175,12 @@ const NavBar = () => {
                         </div>
                     </div>
 
-                    <div className="type">
-                        <div className="type__text">
-                            Today's Deals
-                        </div>
-                    </div>
+
+                        <Link to={'/Product'}className="type">
+                            <div className="type__text">
+                                Today's Deals
+                            </div>
+                        </Link>
 
                     <div className="type">
                         <div className="type__text">
