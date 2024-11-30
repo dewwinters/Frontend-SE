@@ -393,7 +393,7 @@
     top: 0;     
     left: 0;                
     background-color: rgba(18, 24, 41, 0.5); 
-    z-index: 10;
+    z-index: 100;
 }
 
 .sidebar__all {
