@@ -1,3 +1,7 @@
+.navbar__component {
+
+}
+
 /* navbar trên */
 .navbar__up {
     background-color: #004435;
@@ -107,9 +111,41 @@
 }
 
 .searchbox__all__text {
-    padding-bottom: 5px;
+    padding-bottom: 3px;
     width: 50%;
 }
+
+.searchbox__all__textbox {
+    width: 14rem; 
+    height: 20rem; 
+    position: absolute;
+    top: 2.2rem; 
+    left: 258px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: white;
+    border: 1px solid #232f3e; 
+    color: black;
+    padding: 0.5rem; 
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    z-index: 50;
+    border-radius: 3px;
+}
+
+.textbox__text {
+    font-size: 18px; 
+    letter-spacing: 0.05em; 
+    font-family: "YourFontHere", sans-serif; 
+    border-bottom: 1px solid transparent; 
+    cursor: pointer; 
+    transition: border-bottom-color 0.2s; 
+    &:hover {
+        border-bottom-color: #232f3e; 
+    }
+}
+
 
 .searchbox__input {
     border: 0;
@@ -182,7 +218,7 @@
 }
 
 .account {
-    width: 125px;
+    width: 135px;
     display: flex;
     height: 30px;
     padding: 5px;
@@ -210,7 +246,7 @@
     gap: 1px;
     font-size: 14px;
     display: flex;
-    line-height: 10px;
+    line-height: 15px;
     align-items: center;
     font-weight: 700;
 }
@@ -345,4 +381,126 @@
     font-size: 14px;
     padding-left: 5px;
     font-weight: 400;
+}
+
+/* navbar bên trái */
+/* mục này làm cho màn tối đi mà không làm được nên bỏ qua */
+.sidebar__screen {
+    width: 100%;      
+    height: 100vh;     
+    color: black;   
+    position: fixed;    
+    top: 0;     
+    left: 0;                
+    background-color: rgba(18, 24, 41, 0.5); 
+    z-index: 100;
+}
+
+.sidebar__all {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.sidebar__box {
+    width: 350px;
+    height: 100%;
+    background-color: white;
+    border: 1px solid black;
+    /* overflow-y: scroll; */
+    z-index: 11;
+}
+
+.sidebar__signin {
+    position: absolute;
+    width: 302px;
+    background-color: #232f3e;
+    color: white;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 10px;
+    height: 25px;
+    z-index: 12;
+}
+
+.sidebar__signin__text {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.025rem;
+}
+
+.sidebar__wrap {
+    margin-top: 40px;
+    height: 94%;
+    overflow: auto;
+}
+
+.sidebar__component {
+    /* padding-top: 0.75rem; */
+    /* padding-bottom: 0.75rem; */
+    border-bottom: 0.5px solid #dadfdf;
+}
+
+.sidebar__heading {
+    /* margin: 0;
+    padding: 8px 24px; */
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.sidebar__component__box {
+    padding: 0;
+}
+
+.sidebar__component__text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px 8px 20px; 
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; 
+}
+
+.sidebar__component__text:hover {
+    background-color: #e4e4e7;
+}
+
+.sidebar__component__text--modified {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding: 8px 20px 8px 20px; 
+    cursor: pointer;
+    gap: 10px;
+    transition: background-color 0.2s ease-in-out; 
+}
+
+.sidebar__component__text--modified:hover {
+    background-color: #e4e4e7;
+}
+
+.sidebar__close__icon {
+    cursor: pointer;
+    position: absolute;
+    top: 1px;
+    left: 311px;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #232f3e;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 13;
+}
+
+.sidebar__close__icon:hover {
+    background-color: #f87171;
+    color: white;
 }
