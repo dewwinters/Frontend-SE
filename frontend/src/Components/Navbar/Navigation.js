@@ -66,9 +66,9 @@ const NavBar = () => {
                 {/* bên trái */}
                 <div className="navbar__up__left">
                     {/* logo */}
-                    <div className="navbar__logo">
+                    <Link to="/" className="navbar__logo">
                         <img className='amazon__logo' src={amazon_logo} alt='amazon_logo'/>
-                    </div>
+                    </Link>
 
                     {/* vị trí */}
                     <div className="navbar__location">
@@ -128,7 +128,7 @@ const NavBar = () => {
                     </div>
 
                     {/* tài khoản */}
-                    <div className="account">
+                    <Link to="/SignUp" className="account">
                         <div className="account__left">
                             <div className="account__up">
                                 Hello, User
@@ -140,7 +140,7 @@ const NavBar = () => {
                         <div className="account__right">
                             <ArrowDropDownOutlinedIcon sx={{ fontSize: 16 }} className="account__dropdown"/>
                         </div>
-                    </div>
+                    </Link>
 
                     {/* hoàn trả */}
                     <div className="return">

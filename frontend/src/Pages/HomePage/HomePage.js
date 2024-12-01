@@ -4,6 +4,7 @@ import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
 import NavBar from "../../Components/Navbar/Navigation";
 import HomepageFooter from "../../Pages/HomePage/HomepageFooter";
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [startSlider, setStartSlider] = useState(0);
@@ -131,9 +132,9 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className="item__box__card__block__seeMore">
+            <Link to="/Product" className="item__box__card__block__seeMore">
               See more
-            </div>
+            </Link>
           </div> 
         </div>
 
