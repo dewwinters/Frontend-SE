@@ -5,7 +5,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import vietnam from '../../Assets/vietnam.png';
 import vietnam_currency from '../../Assets/vietnam_currency.png'
 
-const Footer = () => {
+const HomepageFooter = () => {
   return (
     <div className="footer">
         {/* footer trên */}
@@ -535,4 +535,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default HomepageFooter
