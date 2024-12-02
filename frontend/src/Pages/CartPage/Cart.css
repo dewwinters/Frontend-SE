@@ -1,0 +1,127 @@
+.Cart{
+    background-color: whitesmoke;
+    padding: 20px 18px 18px;
+    display: flex;
+    gap: 10px;
+}
+
+.TopLeftCart{
+    padding: 20px 15px 15px;
+    box-sizing: border-box;
+    width: 77%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.TopLeftCartTitle{
+    font-size: 28px;
+}
+
+.DesellectAllCart{
+    color:#007185;
+}
+
+.CartPriceTextDivider{
+    text-align: end;
+}
+
+.CartItemsDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.CartItemBlock{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-top: 1px solid #e7e7e7;
+
+}
+
+.CartItemLeftBlock{
+    display: flex;
+    width: 80%;
+}
+
+.CartItemLeftBlockImage{
+    width: 30%;
+    flex-shrink: 0;
+}
+
+.CartItemLeftBlockImg{
+    width: 100%;
+}
+
+.CartItemLeftBlockDetails{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 7px;
+}
+
+.CartItemProductName{
+    font-size: 18px;
+}
+
+.InstockCart{
+    color: #007600;
+    font-size: 12px;
+}
+.FreeShipping{
+    color: #565959;
+    font-size: 12px;
+}
+
+.RemoveFromCart{
+    padding: 5px;
+    font-size: 14px;
+    background-color: #febd69;
+    width: fit-content;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.CartItemRightBlock{
+    font-size: 18px;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+.TopRightCart{
+    padding: 20px 15px 15px;
+    box-sizing: border-box;
+    width: 23%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.SubTotalTitle{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.SubTotalTitleSpan{
+    font-weight: 700;
+}
+
+.GiftAddTo{
+    display: flex;
+    margin: 10px 0;
+}
+
+.ProceedToBuy{
+    font-size: 14px;
+    background-color: #febd69;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 500;
+}

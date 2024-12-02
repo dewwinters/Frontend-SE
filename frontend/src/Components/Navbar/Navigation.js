@@ -153,7 +153,7 @@ const NavBar = () => {
                     </div>
 
                     {/* giỏ hàng */}
-                    <div className="cart">
+                    <Link to='/Cart' className="cart">
                         <span className="cart__up">0</span>
                         <div className="cart__down">
                             <ShoppingCartOutlinedIcon className="cart__icon"/>
@@ -161,7 +161,7 @@ const NavBar = () => {
                         <div className="cart__title">
                             Cart
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </div>
 
