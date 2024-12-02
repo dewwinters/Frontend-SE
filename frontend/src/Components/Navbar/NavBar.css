@@ -223,9 +223,10 @@
     height: 30px;
     padding: 5px;
     cursor: pointer;
+    text-decoration: none;
     &:hover {
         border-radius: 3px;
-        border: 1px solid;
+        border: 1px solid white;
     }
 }
 
