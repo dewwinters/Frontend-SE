@@ -7,7 +7,7 @@ import vietnam_currency from '../../Assets/vietnam_currency.png'
 
 const HomepageFooter = () => {
   return (
-    <div className="footer">
+    <div className="homepage_footer">
         {/* footer trên */}
         <div className="footer__up">
             <div className="footer__up__box">
