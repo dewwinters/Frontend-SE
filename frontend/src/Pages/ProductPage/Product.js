@@ -5,6 +5,7 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import ProductDetail from './Product.json';
 import NavBar from "../../Components/Navbar/Navigation"
 import ProductFooter from "./ProductFooter"
+import { Link } from 'react-router-dom';
 
 const Product = () => {
   return (
@@ -91,7 +92,10 @@ const Product = () => {
                     </div>
 
                     <div className='ProductNameProduct'>
-                      <div>{item.name}</div>
+                      {/* tên sản phẩm */}
+                      <Link to={`/Item/${item.id}`} className="product__name__link">
+                        {item.name}
+                      </Link>
                       <div className='ProductNameProductRating'>
                         <StarRateIcon sx={{ fontSize: "15px", color: "#febd69" }} />
                         <StarRateIcon sx={{ fontSize: "15px", color: "#febd69" }} />

@@ -465,6 +465,8 @@
     padding: 8px 20px 8px 20px; 
     cursor: pointer;
     transition: background-color 0.2s ease-in-out; 
+    text-decoration: none;
+    color: black;
 }
 
 .sidebar__component__text:hover {
