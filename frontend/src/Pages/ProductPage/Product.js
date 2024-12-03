@@ -141,16 +141,15 @@ const Product = () => {
                       <Link to={`/Item/${item.id}`} className="product__name__link">
                         {item.name}
                       </Link>
-                      <div className='ProductNameProductRating'>
+                      {/* <div className='ProductNameProductRating'>
                         <StarRateIcon sx={{ fontSize: "15px", color: "#febd69" }} />
                         <StarRateIcon sx={{ fontSize: "15px", color: "#febd69" }} />
                         <StarRateIcon sx={{ fontSize: "15px", color: "#febd69" }} />
                         <StarRateIcon sx={{ fontSize: "15px", color: "#febd69" }} />
                         <StarOutlineIcon sx={{ fontSize: "15px", color: "#febd69" }} />
-                      </div>
+                      </div> */}
                       <div className='PriceProductDetailPage'>
                         <div className='CurrencyText'>
-                          
                         </div>
                         <div className='RateHomeDetail'>
                           <div className='RateHomeDetailPrice'>
@@ -160,7 +159,10 @@ const Product = () => {
                             Add To Cart
                           </div>
                         </div>
-
+                      </div>
+                      <div className='ProductRatings'>
+                        {/* Add star ratings */}
+                        <ItemRatings avgRating={item.avgRating} ratings={item.ratings} />
                       </div>
                       <div className='SaleProductPage'>
                         Up to 25% off on Black Friday
