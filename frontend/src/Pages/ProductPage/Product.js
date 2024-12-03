@@ -6,8 +6,23 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import NavBar from "../../Components/Navbar/Navigation"
 import ProductFooter from "./ProductFooter"
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { AddToCart } from '../../Redux/Action/Action';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { GB_CURRENCY } from '../../Utils/constants';
+import ItemRatings from '../ItemPage/ItemRatings';
 
 const Product = () => {
+  const Dispatch = useDispatch();
+  const CartItems = useSelector((state) => state.cart.items);
+  const HandleAddToCart = (item) => {
+    toast.success("Added Item To Cart", {
+      position: "bottom-right"
+    })
+    Dispatch(AddToCart(item));
+  }
+
   const [products, setProducts] = useState([]);
 
   // Fetch the JSON file from the public folder
@@ -30,6 +45,8 @@ const Product = () => {
   if (products.length === 0) {
       return <h1>Loading Products...</h1>;
   }
+
+
 
   return (
     <div className='ProductPage'>
@@ -133,13 +150,13 @@ const Product = () => {
                       </div>
                       <div className='PriceProductDetailPage'>
                         <div className='CurrencyText'>
-                          $
+                          
                         </div>
                         <div className='RateHomeDetail'>
                           <div className='RateHomeDetailPrice'>
-                            {item.price}
+                            {GB_CURRENCY.format(item.price)}
                           </div>
-                          <div className='AddToCartButton'>
+                          <div className='AddToCartButton' onClick={() => (HandleAddToCart(item))}>
                             Add To Cart
                           </div>
                         </div>
@@ -165,7 +182,7 @@ const Product = () => {
         </div>
 
       </div>
-
+      <ToastContainer/>
       <ProductFooter />
     </div>
 

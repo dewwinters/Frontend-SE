@@ -1,7 +1,7 @@
 /* trang mặt hàng */
 /* không gian chứa mặt hàng */
 .items__space {
-    height: 265px;
+    height: 100vh;
     /* nhớ sửa lại màu khi xong */
     background-color: white;
     margin-top: 5px;

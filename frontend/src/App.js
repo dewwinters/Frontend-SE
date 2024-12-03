@@ -4,7 +4,8 @@ import SignUp from './Pages/SignUpPage/SignUp';
 import { Routes, Route } from 'react-router-dom';
 import Product from './Pages/ProductPage/Product';
 import SearchResult from "./Pages/SearchResult/SearchResult"
-import Item from "./Pages/ItemPage/Item"
+import Item from "./Pages/ItemPage/Item";
+import Cart from './Pages/CartPage/Cart';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/SignUp' element={<SignUp/>}/>
         <Route path='/SearchResult' element={<SearchResult/>}/>       
         <Route path='/Item/:id' element={<Item/>}/> 
+        <Route path='/Cart' element={<Cart/>}/> 
       </Routes>
     </div>
   );

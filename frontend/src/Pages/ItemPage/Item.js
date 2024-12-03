@@ -7,8 +7,22 @@ import { callAPI } from "../../Utils/CallAPI";
 import "./Item.css";
 import ItemDetail from './ItemDetail';
 import { GB_CURRENCY } from '../../Utils/constants';
+import { useSelector, useDispatch } from 'react-redux';
+import { AddToCart } from '../../Redux/Action/Action';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Item = () => {
+
+    const Dispatch = useDispatch();
+    const CartItems = useSelector((state) => state.cart.items);
+    const HandleAddToCart = (item) => {
+      toast.success("Added Item To Cart", {
+        position: "bottom-right"
+      })
+      Dispatch(AddToCart(item));
+    }
+
     const { id } = useParams(); // Get the ID from the URL
     const [product, setProduct] = useState(null);
 
@@ -26,15 +40,17 @@ const Item = () => {
         getProduct();
     }, [id]); 
 
-    if (!product) return <h1>Loading Product ...</h1>;
+    if (!product) {
+        return <h1>Loading Product ...</h1>;
+    }
 
     // Function to format the price (remove commas or periods and then format)
-    const formatPrice = (price) => {
-        // Remove commas or periods from the string and convert to a number
-        const priceNumber = parseFloat(price.replace(/,/g, '').replace(/\./g, ''));
-        // Format the number with the desired currency format
-        return GB_CURRENCY.format(priceNumber);
-    };
+    // const formatPrice = (price) => {
+    //     // Remove commas or periods from the string and convert to a number
+    //     const priceNumber = parseFloat(price.replace(/,/g, '').replace(/\./g, ''));
+    //     // Format the number with the desired currency format
+    //     return GB_CURRENCY.format(priceNumber);
+    // };
 
     return ( product &&
         <div>
@@ -60,7 +76,7 @@ const Item = () => {
                         {/* right box */}
                         <div className="items__box__right">
                             <div className="items__box__right__currency">
-                                {formatPrice(product.price)}
+                                {GB_CURRENCY.format(product.price)}
                             </div>
                             <div className="items__box__right__text">
                                 Free International Return
@@ -71,13 +87,14 @@ const Item = () => {
                             <div className="items__box__right__stock">
                                 In Stock
                             </div>
-                            <button className="items__box__right__button">
+                            <button onClick={() => (HandleAddToCart(product))} className="items__box__right__button">
                                 Add to Cart
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
             <Footer />
         </div>
     );
