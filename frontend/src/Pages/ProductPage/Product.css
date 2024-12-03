@@ -117,7 +117,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(247, 247, 247);
+    /* background-color: rgb(247, 247, 247); */
     padding: 20px;
 }
 
@@ -141,6 +141,16 @@
     line-height: 1.5;
 }
 
+.product__name__link {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.product__name__link:hover {
+    color: #c45500; 
+}
+
 .ProductNameProductRating {
     display: flex;
     margin: 5px 0;
@@ -152,7 +162,7 @@
 }
 
 .CurrencyText {
-    font-size: 12px;
+    font-size: 20px;
 }
 
 .RateHomeDetail {

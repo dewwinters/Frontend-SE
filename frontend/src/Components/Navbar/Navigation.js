@@ -13,6 +13,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
 import {motion} from "framer-motion"
 import LanguageIcon from '@mui/icons-material/Language';
+import { useSelector, useDispatch } from 'react-redux';
 
 const NavBar = () => {
     const [showAll, setShowAll] = useState(false);
@@ -58,6 +59,8 @@ const NavBar = () => {
             }
         });
     }, [ref, sidebar]);
+
+    const CartItems = useSelector((state) => state.cart.items);
 
     return (
         <div className="navbar__component">
@@ -153,15 +156,17 @@ const NavBar = () => {
                     </div>
 
                     {/* giỏ hàng */}
-                    <div className="cart">
-                        <span className="cart__up">0</span>
+                    <Link to="/Cart" className="cart">
+                        <span className="cart__up">
+                            {CartItems.length}
+                        </span>
                         <div className="cart__down">
                             <ShoppingCartOutlinedIcon className="cart__icon"/>
                         </div>
                         <div className="cart__title">
                             Cart
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </div>
 
@@ -230,24 +235,24 @@ const NavBar = () => {
                                             Digital Content & Devices
                                         </h3>
                                         <ul className="sidebar__component__box">
-                                            <li className="sidebar__component__text">
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Amazon Music 
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Kindle E-readers & Books
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Amazon Appstore 
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
+                                            </Link>
                                         </ul>
                                     </div>
 
@@ -257,138 +262,138 @@ const NavBar = () => {
                                             Shop by Department
                                         </h3>
                                         <ul className="sidebar__component__box">
-                                            <li className="sidebar__component__text">
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Electronics
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Computers
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Smart Home
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Arts & Crafts
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Automotive
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Baby
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Beauty and Personal Care
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Women's Fashion
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Men's Fashion
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Girls' Fashion
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Boys' Fashion
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Health and Household
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Home and Kitchen
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Industrial and Scientific
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Luggage
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Movies and Televisions
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Pet Supplies
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Software
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Sports and Outdoors
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Tools and Home Improvements
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Toys and Games
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Video Games
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
+                                            </Link>
                                         </ul>
                                     </div>
 
@@ -398,27 +403,27 @@ const NavBar = () => {
                                             Programs and Features
                                         </h3>
                                         <ul className="sidebar__component__box">
-                                            <li className="sidebar__component__text">
+                                            <Link to={'/Product'}className="sidebar__component__text">
                                                 Gift Cards
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
+                                            </Link>
                                             <li className="sidebar__component__text">
                                                 Shop By Interest
                                             </li>
-                                            <li className="sidebar__component__text">
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Amazon Live 
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
-                                            <li className="sidebar__component__text">
+                                            </Link>
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 International Shopping 
                                                 <span>
                                                     <ArrowForwardIosIcon/>
                                                 </span>
-                                            </li>
+                                            </Link>
                                             <li className="sidebar__component__text">
                                                 Amazon Second Chance
                                             </li>
@@ -446,12 +451,9 @@ const NavBar = () => {
                                                 </span>
                                                 Viet Nam
                                             </li>
-                                            <li className="sidebar__component__text">
+                                            <Link to={'/Product'} className="sidebar__component__text">
                                                 Customer Services 
-                                            </li>
-                                            <li className="sidebar__component__text">
-                                                Sign in
-                                            </li>
+                                            </Link>
                                         </ul>
                                     </div>
                                 </div>

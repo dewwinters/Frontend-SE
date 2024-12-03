@@ -132,9 +132,11 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <Link to="/Product" className="item__box__card__block__seeMore">
-              See more
-            </Link>
+            <div className="item__box__card__block__seeMore">
+              <Link to="/Product" className="seeMore">
+                See more
+              </Link>
+            </div>
           </div> 
         </div>
 
@@ -172,9 +174,11 @@ const HomePage = () => {
                   </div>
                 </div>
             </div>
-
+            
             <div className="item__box__card__block__seeMore--1row">
-              See more
+              <Link to="/Product" className="seeMore--1row">
+                See more
+              </Link>
             </div>
           </div> 
         </div>
@@ -191,7 +195,9 @@ const HomePage = () => {
             </div>
 
             <div className="item__box__card__block__seeMore__only">
-              See more
+              <Link to="/Product" className="seeMore__only">
+                See more
+              </Link>
             </div>
           </div> 
         </div>
@@ -208,7 +214,9 @@ const HomePage = () => {
             </div>
 
             <div className="item__box__card__block__seeMore__only">
-              Shop Black Friday deals
+              <Link to="/Product" className="seeMore__only">
+                Shop Black Friday deals
+              </Link>
             </div>
           </div> 
         </div>
@@ -249,7 +257,9 @@ const HomePage = () => {
             </div>
 
             <div className="item__box__card__block__seeMore">
-              Shop all deals
+              <Link to="/Product" className="seeMore">
+                Shop all deals
+              </Link>
             </div>
           </div> 
         </div>
@@ -290,7 +300,9 @@ const HomePage = () => {
             </div>
 
             <div className="item__box__card__block__seeMore">
-              See more
+              <Link to="/Product" className="seeMore">
+                See more
+              </Link>
             </div>
           </div> 
         </div>
@@ -307,7 +319,9 @@ const HomePage = () => {
             </div>
 
             <div className="item__box__card__block__seeMore__only">
-              Shop gaming
+              <Link to="/Product" className="seeMore__only">
+                Shop gaming
+              </Link>
             </div>
           </div> 
         </div>
@@ -348,7 +362,9 @@ const HomePage = () => {
             </div>
 
             <div className="item__box__card__block__seeMore">
-              See more
+              <Link to="/Product" className="seeMore">
+                See more
+              </Link>
             </div>
           </div> 
         </div>
@@ -588,7 +604,9 @@ const HomePage = () => {
             </div>
 
             <div className="item__box__card__block__seeMore--1row">
-              See more
+              <Link to="/Product" className="seeMore--1row">
+                See more
+              </Link>
             </div>
           </div> 
         </div>
@@ -629,7 +647,9 @@ const HomePage = () => {
             </div>
 
             <div className="item__box__card__block__seeMore--1row">
-              See more
+              <Link to="/Product" className="seeMore--1row">
+                See more
+              </Link>
             </div>
           </div> 
         </div>
@@ -670,7 +690,9 @@ const HomePage = () => {
             </div>
 
             <div className="item__box__card__block__seeMore--1row">
-              See more
+              <Link to="/Product" className="seeMore--1row">
+                See more
+              </Link>
             </div>
           </div> 
         </div>
@@ -711,7 +733,9 @@ const HomePage = () => {
             </div>
 
             <div className="item__box__card__block__seeMore--1row">
-              See more
+              <Link to="/Product" className="seeMore--1row">
+                See more
+              </Link>
             </div>
           </div> 
         </div>
