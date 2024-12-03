@@ -152,11 +152,12 @@
 }
 
 .CurrencyText {
-    font-size: 12px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .RateHomeDetail {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     display: flex;
     width: 100%;

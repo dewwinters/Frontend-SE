@@ -13,6 +13,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
 import {motion} from "framer-motion"
 import LanguageIcon from '@mui/icons-material/Language';
+import { useSelector, useDispatch } from 'react-redux';
 
 const NavBar = () => {
     const [showAll, setShowAll] = useState(false);
@@ -58,6 +59,8 @@ const NavBar = () => {
             }
         });
     }, [ref, sidebar]);
+
+    const CartItems = useSelector((state) => state.cart.items);
 
     return (
         <div className="navbar__component">
@@ -154,7 +157,7 @@ const NavBar = () => {
 
                     {/* giỏ hàng */}
                     <Link to='/Cart' className="cart">
-                        <span className="cart__up">0</span>
+                        <span className="cart__up">{CartItems.length}</span>
                         <div className="cart__down">
                             <ShoppingCartOutlinedIcon className="cart__icon"/>
                         </div>

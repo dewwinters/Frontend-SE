@@ -5,8 +5,25 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import ProductDetail from './Product.json';
 import NavBar from "../../Components/Navbar/Navigation"
 import ProductFooter from "./ProductFooter"
+import { useSelector, useDispatch } from 'react-redux';
+import { AddToCart } from '../../Redux/Action/Action';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Product = () => {
+
+  const Dispatch = useDispatch();
+  const CartItems = useSelector((state) => state.cart.items);
+  const HandleAddToCart = (item) => {
+
+    toast.success("Added Item To Cart", {
+      position: "bottom-right"
+    })
+    Dispatch(AddToCart(item));
+
+  }
+
   return (
     <div className='ProductPage'>
       <NavBar />
@@ -100,10 +117,10 @@ const Product = () => {
                         <StarOutlineIcon sx={{ fontSize: "15px", color: "#febd69" }} />
                       </div>
                       <div className='PriceProductDetailPage'>
-                        <div className='CurrencyText'>đ</div>
+                        <div className='CurrencyText'>$</div>
                         <div className='RateHomeDetail'>
                           <div className='RateHomeDetailPrice'>{item.price}</div>
-                          <div className='AddToCartButton'>Add To Cart</div>
+                          <div className='AddToCartButton' onClick={() => (HandleAddToCart(item))}>Add To Cart</div>
                         </div>
 
                       </div>
@@ -123,7 +140,7 @@ const Product = () => {
         </div>
 
       </div>
-
+      <ToastContainer/>
       <ProductFooter />
     </div>
 
