@@ -1,21 +1,17 @@
 import React, { useState } from "react";
-import "./SignUp.css";
+import "./SignIn.css";
 import amazon_logo from "../../Assets/amazon_logo_black.png";
 import { Link } from 'react-router-dom';
 
-const SignUp = () => {
+const SignIp = () => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
-    repassword: "",
   });
 
   const [error, setError] = useState({
-    name: "",
     email: "",
     password: "",
-    repassword: "",
   });
 
   const handleInputChange = (e) => {
@@ -34,16 +30,10 @@ const SignUp = () => {
     e.preventDefault();
     let isValid = true;
     let newError = {
-      name: "",
       email: "",
       password: "",
-      repassword: "",
     };
 
-    if (formData.name.trim() === "") {
-      newError.name = "Please enter your name.";
-      isValid = false;
-    }
     if (formData.email.trim() === "") {
       newError.email = "Please enter your email.";
       isValid = false;
@@ -55,13 +45,6 @@ const SignUp = () => {
       newError.password = "Password must be at least 6 characters long.";
       isValid = false;
     }
-    if (formData.repassword.trim() === "") {
-      newError.repassword = "Please re-enter your password.";
-      isValid = false;
-    } else if (formData.password !== formData.repassword) {
-      newError.repassword = "Passwords do not match.";
-      isValid = false;
-    }
 
     setError(newError);
 
@@ -71,23 +54,13 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signup-container">
+    <div className="signin-container">
       <Link to="/">
-        <img src={amazon_logo} alt="Amazon Logo" className="signup-logo" />
+        <img src={amazon_logo} alt="Amazon Logo" className="signin-logo" />
       </Link>
-      <div className="signup-box">
-        <h1>Create account</h1>
+      <div className="signin-box">
+        <h1>Sign In</h1>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Your name</label>
-          <input
-            type="text"
-            id="name"
-            value={formData.name}
-            placeholder="First and last name"
-            required
-            onChange={handleInputChange}
-          />
-          {error.name && <p className="error-message">{error.name}</p>}
 
           <label htmlFor="email">Mobile number or email</label>
           <input
@@ -111,19 +84,8 @@ const SignUp = () => {
           />
           {error.password && <p className="error-message">{error.password}</p>}
 
-          <label htmlFor="repassword">Re-enter password</label>
-          <input
-            type="password"
-            id="repassword"
-            value={formData.repassword}
-            placeholder="Re-enter your password"
-            required
-            onChange={handleInputChange}
-          />
-          {error.repassword && <p className="error-message">{error.repassword}</p>}
-
           <Link to="/">
-            <button type="submit" className="signup-button">
+            <button type="submit" className="signin-button">
               Continue
             </button>
           </Link>
@@ -136,13 +98,14 @@ const SignUp = () => {
         </form>
 
         <p className="signin-prompt">
-          Already have an account?{" "}
-          <a href="/SignIn" className="signin-link">
-            Sign in
+          Create your Amazon account{" "}
+          <a href="/SignUp" className="signup-link">
+            Sign Up
           </a>
         </p>
-      </div>
 
+      </div>
+      
       <footer>
         <div className="footer-links">
           <a href="#">Conditions of Use</a>
@@ -155,4 +118,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIp;
