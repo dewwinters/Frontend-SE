@@ -7,13 +7,14 @@ import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, createSearchParams } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
 import {motion} from "framer-motion"
 import LanguageIcon from '@mui/icons-material/Language';
 import { useSelector, useDispatch } from 'react-redux';
+import { callAPI } from '../../Utils/CallAPI';
 
 const NavBar = () => {
     const [showAll, setShowAll] = useState(false);
@@ -62,6 +63,40 @@ const NavBar = () => {
 
     const CartItems = useSelector((state) => state.cart.items);
 
+    // khúc này làm suggestion cho search bar
+    const [suggestions, setSuggestions] = useState(null);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const getSuggestions = () => {
+        callAPI(`/Data/Product.json`)
+            .then((suggestionResults) => {
+                // Ensure to access the `Product` array inside the response
+                setSuggestions(suggestionResults.Product || []);
+            })
+            .catch((error) => {
+                console.error("Error fetching suggestions:", error);
+            });
+    };
+
+    useEffect(() => {
+        getSuggestions();
+    }, []);
+
+    const [category, setCategory] = useState("All");
+    const navigate = useNavigate();
+
+    const onHandleSubmit = (e) => {
+        e.preventDefault();
+        navigate({
+            pathname: "/search",  // Ensure it's "/search" and not "search"
+            search: `?${createSearchParams({ category, searchTerm })}`,  // Correctly append the query params
+        });
+        setSearchTerm("");
+        setCategory("All");
+    };
+    
+    // hết phần suggestion cho search bar
+
     return (
         <div className="navbar__component">
             {/* NavBar trên */}
@@ -95,7 +130,7 @@ const NavBar = () => {
                     <div className="navbar__searchbox">
                         {/* all */}
                         <div className="searchbox__box">
-                            <div className="searchbox__all" onClick={() => setShowAll(!showAll)}>
+                            <div className="searchbox__all" onClick={() => setShowAll(!showAll)} onChange={(e) => setCategory(e.target.value)}>
                                 <div className="searchbox__all__text">
                                     All
                                 </div>
@@ -112,11 +147,34 @@ const NavBar = () => {
                                 </div>
                             )}
 
-                            <input type='text' className="searchbox__input" placeholder='Search Amazon'/>
-                            <div className="searchbox__icon">
+                            <input type='text' className="searchbox__input" placeholder='Search Amazon' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
+
+                            <div className="searchbox__icon" onClick={onHandleSubmit}>
                                 <SearchOutlinedIcon sx={{ fontSize: "26px" }} />
                             </div>
                         </div>
+                        {
+                            suggestions && searchTerm && (
+                                <div className="suggestion__box">
+                                    {
+                                        suggestions
+                                            .filter((Product) => {
+                                                const currentSearchTerm = searchTerm.toLowerCase();
+                                                const title = Product.name.toLowerCase(); // Match with `name` field from JSON
+                                                return (
+                                                    title.startsWith(currentSearchTerm) && title !== currentSearchTerm
+                                                );
+                                            })
+                                            .slice(0, 10)
+                                            .map((Product) => (
+                                                <div key={Product.id} onClick={() => setSearchTerm(Product.name)}>
+                                                    {Product.name}
+                                                </div>
+                                            ))
+                                    }
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
 

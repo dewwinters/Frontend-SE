@@ -154,9 +154,14 @@
     border-radius: 10px;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
 }
 
 .ProceedToBuy:hover {
     background-color: #f3a847;
     transform: scale(1.05);
+}
+
+.ProceedToBuy__text {
+    color: black;
 }

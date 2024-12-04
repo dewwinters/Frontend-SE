@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./SignUp.css";
 import amazon_logo from "../../Assets/amazon_logo_black.png";
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const SignUp = () => {
     email: "",
     password: "",
     repassword: "",
+    age: "",
+    gender: "",
   });
 
   const [error, setError] = useState({
@@ -15,6 +18,8 @@ const SignUp = () => {
     email: "",
     password: "",
     repassword: "",
+    age: "",
+    gender: "",
   });
 
   const handleInputChange = (e) => {
@@ -27,6 +32,11 @@ const SignUp = () => {
       ...error,
       [id]: "",
     });
+  };
+
+  const validateAge = (age) => {
+    const ageNumber = parseInt(age, 10);
+    return ageNumber >= 0 && ageNumber <= 99;
   };
 
   const handleSubmit = (e) => {
@@ -61,6 +71,14 @@ const SignUp = () => {
       newError.repassword = "Passwords do not match.";
       isValid = false;
     }
+    if (formData.age.trim() === "" || !validateAge(formData.age)) {
+      newError.age = "Please enter a valid age (0-99).";
+      isValid = false;
+    }
+    if (formData.gender.trim() === "") {
+      newError.gender = "Please select a gender.";
+      isValid = false;
+    }
 
     setError(newError);
 
@@ -71,7 +89,9 @@ const SignUp = () => {
 
   return (
     <div className="signup-container">
-      <img src={amazon_logo} alt="Amazon Logo" className="signup-logo" />
+      <Link to="/">
+        <img src={amazon_logo} alt="Amazon Logo" className="signup-logo" />
+      </Link>
       <div className="signup-box">
         <h1>Create account</h1>
         <form onSubmit={handleSubmit}>
@@ -119,9 +139,36 @@ const SignUp = () => {
           />
           {error.repassword && <p className="error-message">{error.repassword}</p>}
 
-          <button type="submit" className="signup-button">
-            Continue
-          </button>
+          <label htmlFor="age">Age</label>
+          <input
+            type="number"
+            id="age"
+            value={formData.age}
+            placeholder="Enter your age"
+            required
+            onChange={handleInputChange}
+          />
+          {error.age && <p className="error-message">{error.age}</p>}
+
+          <label htmlFor="gender">Gender</label>
+          <select
+            id="gender"
+            value={formData.gender}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select>
+          {error.gender && <p className="error-message">{error.gender}</p>}
+          
+          <Link to="/">
+            <button type="submit" className="signup-button">
+              Continue
+            </button>
+          </Link>
 
           <p className="agreement-text">
             By creating an account, you agree to Amazon's{" "}
@@ -132,11 +179,12 @@ const SignUp = () => {
 
         <p className="signin-prompt">
           Already have an account?{" "}
-          <a href="/signin" className="signin-link">
+          <a href="/SignIn" className="signin-link">
             Sign in
           </a>
         </p>
       </div>
+
       <footer>
         <div className="footer-links">
           <a href="#">Conditions of Use</a>
