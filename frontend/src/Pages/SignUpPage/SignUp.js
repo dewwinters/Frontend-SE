@@ -33,15 +33,9 @@ const SignUp = () => {
     });
   };
 
-  const handleRadioChange = (e) => {
-    setFormData({
-      ...formData,
-      gender: e.target.value,
-    });
-    setError({
-      ...error,
-      gender: "",
-    });
+  const validateAge = (age) => {
+    const ageNumber = parseInt(age, 10);
+    return ageNumber >= 0 && ageNumber <= 99;
   };
 
   const handleSubmit = (e) => {
@@ -78,17 +72,12 @@ const SignUp = () => {
       newError.repassword = "Passwords do not match.";
       isValid = false;
     }
-
-    if (formData.age.trim() === "") {
-      newError.age = "Please enter your age.";
-      isValid = false;
-    } else if (!/^\d+$/.test(formData.age) || +formData.age < 0 || +formData.age > 99) {
-      newError.age = "Age must be a number between 0 and 99.";
+    if (formData.age.trim() === "" || !validateAge(formData.age)) {
+      newError.age = "Please enter a valid age (0-99).";
       isValid = false;
     }
-
     if (formData.gender.trim() === "") {
-      newError.gender = "Please select your gender.";
+      newError.gender = "Please select a gender.";
       isValid = false;
     }
 
@@ -149,9 +138,9 @@ const SignUp = () => {
           />
           {error.repassword && <p className="error-message">{error.repassword}</p>}
 
-          <label htmlFor="age">Your age</label>
+          <label htmlFor="age">Age</label>
           <input
-            type="text"
+            type="number"
             id="age"
             value={formData.age}
             placeholder="Enter your age"
@@ -160,36 +149,18 @@ const SignUp = () => {
           />
           {error.age && <p className="error-message">{error.age}</p>}
 
-          <label>Gender</label>
-          <div className="gender-options">
-            <label>
-              <input
-                type="radio"
-                value="Male"
-                checked={formData.gender === "Male"}
-                onChange={handleRadioChange}
-              />
-              Male
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="Female"
-                checked={formData.gender === "Female"}
-                onChange={handleRadioChange}
-              />
-              Female
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="Other"
-                checked={formData.gender === "Other"}
-                onChange={handleRadioChange}
-              />
-              Other
-            </label>
-          </div>
+          <label htmlFor="gender">Gender</label>
+          <select
+            id="gender"
+            value={formData.gender}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select>
           {error.gender && <p className="error-message">{error.gender}</p>}
 
           <button type="submit" className="signup-button">
