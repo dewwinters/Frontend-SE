@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavBar from '../../Components/Navbar/Navigation';
 import Footer from '../../Components/Footer/Footer';
+import { GB_CURRENCY } from '../../Utils/constants';
 
 const Cart = () => {
 
@@ -13,8 +14,10 @@ const Cart = () => {
   const Dispatch = useDispatch();
   const CartItems = useSelector((state) => state.cart.items);
 
-  let a = 0;
-  let cost = CartItems.map((item) => { return a = a + item.price })
+  // let a = 0;
+  // let cost = CartItems.map((item) => { return a = a + item.price })
+
+  const totalCost = CartItems.reduce((total, item) => total + item.price, 0);
 
   useEffect(() => {
     SetCartItem(CartItems);
@@ -41,7 +44,7 @@ const Cart = () => {
             {
                 CartItems.map((item, ind) => {
                 return (
-                    <div className="CartItemBlock">
+                    <div className="CartItemBlock" key={ind}> 
                     <div className="CartItemLeftBlock">
                         <div className="CartItemLeftBlockImage">
                         <img
@@ -59,7 +62,7 @@ const Cart = () => {
                     </div>
 
                     <div className="CartItemRightBlock">
-                        <div className="CartItemPrice">${item.price}</div>
+                        <div className="CartItemPrice">{GB_CURRENCY.format(item.price)}</div>
                     </div>
                     </div>
                 )
@@ -71,7 +74,7 @@ const Cart = () => {
 
         <div className="TopRightCart">
             <div className="SubTotalTitle">
-            Subtotal ({CartItem.length} items): <span className="SubTotalTitleSpan">USD {a}</span></div>
+            Subtotal ({CartItem.length} items): <span className="SubTotalTitleSpan">{GB_CURRENCY.format(totalCost)}</span></div>
             <div className="GiftAddTo">
             <input type="checkbox" />
             <div>This order contains a gift</div>
