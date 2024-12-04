@@ -507,3 +507,14 @@
     background-color: #f87171;
     color: white;
 }
+
+/* suggestion cho search bar */
+.suggestion__box {
+    background-color: white;
+    color: black;
+    width: 635px;
+    left: 22%;
+    z-index: 40;
+    position: absolute;
+    /* top: 100%; */
+}
