@@ -87,20 +87,14 @@ const NavBar = () => {
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
-
         navigate({
-            pathname: "search",
-            search: `${
-                createSearchParams({
-                    category: `${category}`,
-                    searchTerm: `${searchTerm}`
-                })
-            }`
-        })
-
+            pathname: "/search",  // Ensure it's "/search" and not "search"
+            search: `?${createSearchParams({ category, searchTerm })}`,  // Correctly append the query params
+        });
         setSearchTerm("");
         setCategory("All");
     };
+    
     // hết phần suggestion cho search bar
 
     return (

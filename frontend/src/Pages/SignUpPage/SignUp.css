@@ -129,3 +129,29 @@ footer {
   margin-bottom: 15px;
 }
 
+.signup-box input,
+.signup-box select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #a6a6a6;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.signup-box select {
+  background-color: white;
+  font-size: 14px;
+  color: #555;
+}
+
+.signup-box select:focus {
+  outline: none;
+  border-color: #f90;
+  box-shadow: 0 0 3px #f90;
+}
+
+.signup-box select option {
+  font-size: 14px;
+  color: #555;
+}
