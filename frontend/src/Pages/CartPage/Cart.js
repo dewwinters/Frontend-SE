@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NavBar from '../../Components/Navbar/Navigation';
 import Footer from '../../Components/Footer/Footer';
 import { GB_CURRENCY } from '../../Utils/constants';
+import {Link} from "react-router-dom";
 
 const Cart = () => {
 
@@ -79,7 +80,11 @@ const Cart = () => {
             <input type="checkbox" />
             <div>This order contains a gift</div>
             </div>
-            <div className="ProceedToBuy">Proceed to buy</div>
+            <Link to="/Checkout" className="ProceedToBuy">
+              <div className="ProceedToBuy__text">
+                Proceed to checkout
+              </div>
+            </Link>
         </div>
         <ToastContainer/>
         </div>
