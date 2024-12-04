@@ -123,3 +123,22 @@ footer {
   margin-bottom: 15px;
 }
 
+.gender-options {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.gender-options label {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gender-options input[type="radio"] {
+  margin: 0;
+  padding: 0;
+}
+
+

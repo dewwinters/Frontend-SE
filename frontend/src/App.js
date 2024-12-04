@@ -9,12 +9,13 @@ import Cart from './Pages/CartPage/Cart';
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/Product' element={<Product/>}/>
         <Route path='/SignUp' element={<SignUp/>}/>
         <Route path='Cart' element={<Cart/>}/>
-      </Routes>
+      </Routes> */}
+      <SignUp></SignUp>
     </div>
   );
 }
